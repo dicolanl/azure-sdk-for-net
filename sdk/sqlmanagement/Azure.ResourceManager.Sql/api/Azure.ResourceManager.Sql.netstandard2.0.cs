@@ -895,10 +895,10 @@ namespace Azure.ResourceManager.Sql
     public partial class JobVersionsOperations
     {
         protected JobVersionsOperations() { }
-        public virtual Azure.Response<Azure.ResourceManager.Sql.Models.Resource> Get(string resourceGroupName, string serverName, string jobAgentName, string jobName, int jobVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) { throw null; }
-        public virtual System.Threading.Tasks.Task<Azure.Response<Azure.ResourceManager.Sql.Models.Resource>> GetAsync(string resourceGroupName, string serverName, string jobAgentName, string jobName, int jobVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) { throw null; }
-        public virtual Azure.Pageable<Azure.ResourceManager.Sql.Models.Resource> ListByJob(string resourceGroupName, string serverName, string jobAgentName, string jobName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) { throw null; }
-        public virtual Azure.AsyncPageable<Azure.ResourceManager.Sql.Models.Resource> ListByJobAsync(string resourceGroupName, string serverName, string jobAgentName, string jobName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) { throw null; }
+        public virtual Azure.Response<Azure.ResourceManager.Sql.Models.JobVersion> Get(string resourceGroupName, string serverName, string jobAgentName, string jobName, int jobVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) { throw null; }
+        public virtual System.Threading.Tasks.Task<Azure.Response<Azure.ResourceManager.Sql.Models.JobVersion>> GetAsync(string resourceGroupName, string serverName, string jobAgentName, string jobName, int jobVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) { throw null; }
+        public virtual Azure.Pageable<Azure.ResourceManager.Sql.Models.JobVersion> ListByJob(string resourceGroupName, string serverName, string jobAgentName, string jobName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) { throw null; }
+        public virtual Azure.AsyncPageable<Azure.ResourceManager.Sql.Models.JobVersion> ListByJobAsync(string resourceGroupName, string serverName, string jobAgentName, string jobName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) { throw null; }
     }
     public partial class LongTermRetentionBackupsDeleteByResourceGroupOperation : Azure.Operation<Azure.Response>
     {
@@ -2533,12 +2533,6 @@ namespace Azure.ResourceManager.Sql
 }
 namespace Azure.ResourceManager.Sql.Models
 {
-    public partial class AdministratorListResult
-    {
-        internal AdministratorListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ServerAzureADAdministrator> Value { get { throw null; } }
-    }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct AdministratorName : System.IEquatable<Azure.ResourceManager.Sql.Models.AdministratorName>
     {
@@ -2661,13 +2655,7 @@ namespace Azure.ResourceManager.Sql.Models
         public int? StepSize { get { throw null; } }
         public Azure.ResourceManager.Sql.Models.PauseDelayTimeUnit? Unit { get { throw null; } }
     }
-    public partial class AzureADOnlyAuthListResult
-    {
-        internal AzureADOnlyAuthListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ServerAzureADOnlyAuthentication> Value { get { throw null; } }
-    }
-    public partial class BackupLongTermRetentionPolicy : Azure.ResourceManager.Sql.Models.Resource
+    public partial class BackupLongTermRetentionPolicy : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public BackupLongTermRetentionPolicy() { }
         public string MonthlyRetention { get { throw null; } set { } }
@@ -2675,17 +2663,11 @@ namespace Azure.ResourceManager.Sql.Models
         public int? WeekOfYear { get { throw null; } set { } }
         public string YearlyRetention { get { throw null; } set { } }
     }
-    public partial class BackupShortTermRetentionPolicy : Azure.ResourceManager.Sql.Models.Resource
+    public partial class BackupShortTermRetentionPolicy : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public BackupShortTermRetentionPolicy() { }
         public Azure.ResourceManager.Sql.Models.DiffBackupIntervalInHours? DiffBackupIntervalInHours { get { throw null; } set { } }
         public int? RetentionDays { get { throw null; } set { } }
-    }
-    public partial class BackupShortTermRetentionPolicyListResult
-    {
-        internal BackupShortTermRetentionPolicyListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.BackupShortTermRetentionPolicy> Value { get { throw null; } }
     }
     public enum BlobAuditingPolicyState
     {
@@ -2848,14 +2830,14 @@ namespace Azure.ResourceManager.Sql.Models
         public Azure.ResourceManager.Sql.Models.DatabaseStatus? Status { get { throw null; } }
         public bool? ZoneRedundant { get { throw null; } set { } }
     }
-    public partial class DatabaseAutomaticTuning : Azure.ResourceManager.Sql.Models.Resource
+    public partial class DatabaseAutomaticTuning : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public DatabaseAutomaticTuning() { }
         public Azure.ResourceManager.Sql.Models.AutomaticTuningMode? ActualState { get { throw null; } }
         public Azure.ResourceManager.Sql.Models.AutomaticTuningMode? DesiredState { get { throw null; } set { } }
         public System.Collections.Generic.IDictionary<string, Azure.ResourceManager.Sql.Models.AutomaticTuningOptions> Options { get { throw null; } }
     }
-    public partial class DatabaseBlobAuditingPolicy : Azure.ResourceManager.Sql.Models.Resource
+    public partial class DatabaseBlobAuditingPolicy : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public DatabaseBlobAuditingPolicy() { }
         public System.Collections.Generic.IList<string> AuditActionsAndGroups { get { throw null; } }
@@ -2868,12 +2850,6 @@ namespace Azure.ResourceManager.Sql.Models
         public string StorageAccountAccessKey { get { throw null; } set { } }
         public System.Guid? StorageAccountSubscriptionId { get { throw null; } set { } }
         public string StorageEndpoint { get { throw null; } set { } }
-    }
-    public partial class DatabaseBlobAuditingPolicyListResult
-    {
-        internal DatabaseBlobAuditingPolicyListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.DatabaseBlobAuditingPolicy> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct DatabaseEdition : System.IEquatable<Azure.ResourceManager.Sql.Models.DatabaseEdition>
@@ -2923,13 +2899,7 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.DatabaseLicenseType left, Azure.ResourceManager.Sql.Models.DatabaseLicenseType right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class DatabaseListResult
-    {
-        internal DatabaseListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.Database> Value { get { throw null; } }
-    }
-    public partial class DatabaseOperation : Azure.ResourceManager.Sql.Models.Resource
+    public partial class DatabaseOperation : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public DatabaseOperation() { }
         public string DatabaseName { get { throw null; } }
@@ -2946,12 +2916,6 @@ namespace Azure.ResourceManager.Sql.Models
         public string ServerName { get { throw null; } }
         public System.DateTimeOffset? StartTime { get { throw null; } }
         public Azure.ResourceManager.Sql.Models.ManagementOperationState? State { get { throw null; } }
-    }
-    public partial class DatabaseOperationListResult
-    {
-        internal DatabaseOperationListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.DatabaseOperation> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct DatabaseReadScale : System.IEquatable<Azure.ResourceManager.Sql.Models.DatabaseReadScale>
@@ -2971,7 +2935,7 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.DatabaseReadScale left, Azure.ResourceManager.Sql.Models.DatabaseReadScale right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class DatabaseSecurityAlertPolicy : Azure.ResourceManager.Sql.Models.Resource
+    public partial class DatabaseSecurityAlertPolicy : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public DatabaseSecurityAlertPolicy() { }
         public string DisabledAlerts { get { throw null; } set { } }
@@ -3089,12 +3053,7 @@ namespace Azure.ResourceManager.Sql.Models
         public string ResourceName { get { throw null; } }
         public string Unit { get { throw null; } }
     }
-    public partial class DatabaseUsageListResult
-    {
-        internal DatabaseUsageListResult() { }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.DatabaseUsage> Value { get { throw null; } }
-    }
-    public partial class DatabaseVulnerabilityAssessment : Azure.ResourceManager.Sql.Models.Resource
+    public partial class DatabaseVulnerabilityAssessment : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public DatabaseVulnerabilityAssessment() { }
         public Azure.ResourceManager.Sql.Models.VulnerabilityAssessmentRecurringScansProperties RecurringScans { get { throw null; } set { } }
@@ -3102,13 +3061,7 @@ namespace Azure.ResourceManager.Sql.Models
         public string StorageContainerPath { get { throw null; } set { } }
         public string StorageContainerSasKey { get { throw null; } set { } }
     }
-    public partial class DatabaseVulnerabilityAssessmentListResult
-    {
-        internal DatabaseVulnerabilityAssessmentListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.DatabaseVulnerabilityAssessment> Value { get { throw null; } }
-    }
-    public partial class DatabaseVulnerabilityAssessmentRuleBaseline : Azure.ResourceManager.Sql.Models.Resource
+    public partial class DatabaseVulnerabilityAssessmentRuleBaseline : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public DatabaseVulnerabilityAssessmentRuleBaseline() { }
         public System.Collections.Generic.IList<Azure.ResourceManager.Sql.Models.DatabaseVulnerabilityAssessmentRuleBaselineItem> BaselineResults { get { throw null; } }
@@ -3118,7 +3071,7 @@ namespace Azure.ResourceManager.Sql.Models
         public DatabaseVulnerabilityAssessmentRuleBaselineItem(System.Collections.Generic.IEnumerable<string> result) { }
         public System.Collections.Generic.IList<string> Result { get { throw null; } }
     }
-    public partial class DatabaseVulnerabilityAssessmentScansExport : Azure.ResourceManager.Sql.Models.Resource
+    public partial class DatabaseVulnerabilityAssessmentScansExport : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public DatabaseVulnerabilityAssessmentScansExport() { }
         public string ExportedReportLocation { get { throw null; } }
@@ -3132,7 +3085,7 @@ namespace Azure.ResourceManager.Sql.Models
         SSN = 4,
         Text = 5,
     }
-    public partial class DataMaskingPolicy : Azure.ResourceManager.Sql.Models.Resource
+    public partial class DataMaskingPolicy : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public DataMaskingPolicy() { }
         public string ApplicationPrincipals { get { throw null; } }
@@ -3142,7 +3095,7 @@ namespace Azure.ResourceManager.Sql.Models
         public string Location { get { throw null; } }
         public string MaskingLevel { get { throw null; } }
     }
-    public partial class DataMaskingRule : Azure.ResourceManager.Sql.Models.Resource
+    public partial class DataMaskingRule : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public DataMaskingRule() { }
         public string AliasName { get { throw null; } set { } }
@@ -3159,11 +3112,6 @@ namespace Azure.ResourceManager.Sql.Models
         public string SchemaName { get { throw null; } set { } }
         public string SuffixSize { get { throw null; } set { } }
         public string TableName { get { throw null; } set { } }
-    }
-    public partial class DataMaskingRuleListResult
-    {
-        internal DataMaskingRuleListResult() { }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.DataMaskingRule> Value { get { throw null; } }
     }
     public enum DataMaskingRuleState
     {
@@ -3215,7 +3163,7 @@ namespace Azure.ResourceManager.Sql.Models
         public Azure.ResourceManager.Sql.Models.ElasticPoolState? State { get { throw null; } }
         public bool? ZoneRedundant { get { throw null; } set { } }
     }
-    public partial class ElasticPoolActivity : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ElasticPoolActivity : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ElasticPoolActivity() { }
         public string ElasticPoolName { get { throw null; } }
@@ -3240,12 +3188,7 @@ namespace Azure.ResourceManager.Sql.Models
         public System.DateTimeOffset? StartTime { get { throw null; } }
         public string State { get { throw null; } }
     }
-    public partial class ElasticPoolActivityListResult
-    {
-        internal ElasticPoolActivityListResult() { }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ElasticPoolActivity> Value { get { throw null; } }
-    }
-    public partial class ElasticPoolDatabaseActivity : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ElasticPoolDatabaseActivity : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ElasticPoolDatabaseActivity() { }
         public string CurrentElasticPoolName { get { throw null; } }
@@ -3264,11 +3207,6 @@ namespace Azure.ResourceManager.Sql.Models
         public string ServerName { get { throw null; } }
         public System.DateTimeOffset? StartTime { get { throw null; } }
         public string State { get { throw null; } }
-    }
-    public partial class ElasticPoolDatabaseActivityListResult
-    {
-        internal ElasticPoolDatabaseActivityListResult() { }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ElasticPoolDatabaseActivity> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct ElasticPoolEdition : System.IEquatable<Azure.ResourceManager.Sql.Models.ElasticPoolEdition>
@@ -3318,13 +3256,7 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.ElasticPoolLicenseType left, Azure.ResourceManager.Sql.Models.ElasticPoolLicenseType right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class ElasticPoolListResult
-    {
-        internal ElasticPoolListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ElasticPool> Value { get { throw null; } }
-    }
-    public partial class ElasticPoolOperation : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ElasticPoolOperation : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ElasticPoolOperation() { }
         public string Description { get { throw null; } }
@@ -3341,12 +3273,6 @@ namespace Azure.ResourceManager.Sql.Models
         public string ServerName { get { throw null; } }
         public System.DateTimeOffset? StartTime { get { throw null; } }
         public string State { get { throw null; } }
-    }
-    public partial class ElasticPoolOperationListResult
-    {
-        internal ElasticPoolOperationListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ElasticPoolOperation> Value { get { throw null; } }
     }
     public partial class ElasticPoolPerDatabaseMaxPerformanceLevelCapability
     {
@@ -3415,7 +3341,7 @@ namespace Azure.ResourceManager.Sql.Models
         public System.Collections.Generic.IDictionary<string, string> Tags { get { throw null; } }
         public bool? ZoneRedundant { get { throw null; } set { } }
     }
-    public partial class EncryptionProtector : Azure.ResourceManager.Sql.Models.Resource
+    public partial class EncryptionProtector : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public EncryptionProtector() { }
         public string Kind { get { throw null; } }
@@ -3425,12 +3351,6 @@ namespace Azure.ResourceManager.Sql.Models
         public string Subregion { get { throw null; } }
         public string Thumbprint { get { throw null; } }
         public string Uri { get { throw null; } }
-    }
-    public partial class EncryptionProtectorListResult
-    {
-        internal EncryptionProtectorListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.EncryptionProtector> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct EncryptionProtectorName : System.IEquatable<Azure.ResourceManager.Sql.Models.EncryptionProtectorName>
@@ -3479,7 +3399,7 @@ namespace Azure.ResourceManager.Sql.Models
         public Azure.ResourceManager.Sql.Models.StorageKeyType StorageKeyType { get { throw null; } }
         public string StorageUri { get { throw null; } }
     }
-    public partial class ExtendedDatabaseBlobAuditingPolicy : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ExtendedDatabaseBlobAuditingPolicy : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ExtendedDatabaseBlobAuditingPolicy() { }
         public System.Collections.Generic.IList<string> AuditActionsAndGroups { get { throw null; } }
@@ -3493,13 +3413,7 @@ namespace Azure.ResourceManager.Sql.Models
         public System.Guid? StorageAccountSubscriptionId { get { throw null; } set { } }
         public string StorageEndpoint { get { throw null; } set { } }
     }
-    public partial class ExtendedDatabaseBlobAuditingPolicyListResult
-    {
-        internal ExtendedDatabaseBlobAuditingPolicyListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ExtendedDatabaseBlobAuditingPolicy> Value { get { throw null; } }
-    }
-    public partial class ExtendedServerBlobAuditingPolicy : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ExtendedServerBlobAuditingPolicy : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ExtendedServerBlobAuditingPolicy() { }
         public System.Collections.Generic.IList<string> AuditActionsAndGroups { get { throw null; } }
@@ -3512,12 +3426,6 @@ namespace Azure.ResourceManager.Sql.Models
         public string StorageAccountAccessKey { get { throw null; } set { } }
         public System.Guid? StorageAccountSubscriptionId { get { throw null; } set { } }
         public string StorageEndpoint { get { throw null; } set { } }
-    }
-    public partial class ExtendedServerBlobAuditingPolicyListResult
-    {
-        internal ExtendedServerBlobAuditingPolicyListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ExtendedServerBlobAuditingPolicy> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct ExtensionName : System.IEquatable<Azure.ResourceManager.Sql.Models.ExtensionName>
@@ -3536,7 +3444,7 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.ExtensionName left, Azure.ResourceManager.Sql.Models.ExtensionName right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class FailoverGroup : Azure.ResourceManager.Sql.Models.Resource
+    public partial class FailoverGroup : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public FailoverGroup() { }
         public System.Collections.Generic.IList<string> Databases { get { throw null; } }
@@ -3547,12 +3455,6 @@ namespace Azure.ResourceManager.Sql.Models
         public Azure.ResourceManager.Sql.Models.FailoverGroupReplicationRole? ReplicationRole { get { throw null; } }
         public string ReplicationState { get { throw null; } }
         public System.Collections.Generic.IDictionary<string, string> Tags { get { throw null; } }
-    }
-    public partial class FailoverGroupListResult
-    {
-        internal FailoverGroupListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.FailoverGroup> Value { get { throw null; } }
     }
     public partial class FailoverGroupReadOnlyEndpoint
     {
@@ -3591,7 +3493,7 @@ namespace Azure.ResourceManager.Sql.Models
         public Azure.ResourceManager.Sql.Models.FailoverGroupReadWriteEndpoint ReadWriteEndpoint { get { throw null; } set { } }
         public System.Collections.Generic.IDictionary<string, string> Tags { get { throw null; } }
     }
-    public partial class FirewallRule : Azure.ResourceManager.Sql.Models.Resource
+    public partial class FirewallRule : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public FirewallRule() { }
         public string EndIpAddress { get { throw null; } set { } }
@@ -3599,23 +3501,13 @@ namespace Azure.ResourceManager.Sql.Models
         public string Location { get { throw null; } }
         public string StartIpAddress { get { throw null; } set { } }
     }
-    public partial class FirewallRuleListResult
-    {
-        internal FirewallRuleListResult() { }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.FirewallRule> Value { get { throw null; } }
-    }
-    public partial class GeoBackupPolicy : Azure.ResourceManager.Sql.Models.Resource
+    public partial class GeoBackupPolicy : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public GeoBackupPolicy(Azure.ResourceManager.Sql.Models.GeoBackupPolicyState state) { }
         public string Kind { get { throw null; } }
         public string Location { get { throw null; } }
         public Azure.ResourceManager.Sql.Models.GeoBackupPolicyState State { get { throw null; } set { } }
         public string StorageType { get { throw null; } }
-    }
-    public partial class GeoBackupPolicyListResult
-    {
-        internal GeoBackupPolicyListResult() { }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.GeoBackupPolicy> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct GeoBackupPolicyName : System.IEquatable<Azure.ResourceManager.Sql.Models.GeoBackupPolicyName>
@@ -3656,7 +3548,7 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.IdentityType left, Azure.ResourceManager.Sql.Models.IdentityType right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class ImportExportResponse : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ImportExportResponse : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ImportExportResponse() { }
         public string BlobUri { get { throw null; } }
@@ -3695,7 +3587,7 @@ namespace Azure.ResourceManager.Sql.Models
         public string MaxSizeBytes { get { throw null; } }
         public Azure.ResourceManager.Sql.Models.ServiceObjectiveName ServiceObjectiveName { get { throw null; } }
     }
-    public partial class InstanceFailoverGroup : Azure.ResourceManager.Sql.Models.Resource
+    public partial class InstanceFailoverGroup : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public InstanceFailoverGroup() { }
         public System.Collections.Generic.IList<Azure.ResourceManager.Sql.Models.ManagedInstancePairInfo> ManagedInstancePairs { get { throw null; } }
@@ -3704,12 +3596,6 @@ namespace Azure.ResourceManager.Sql.Models
         public Azure.ResourceManager.Sql.Models.InstanceFailoverGroupReadWriteEndpoint ReadWriteEndpoint { get { throw null; } set { } }
         public Azure.ResourceManager.Sql.Models.InstanceFailoverGroupReplicationRole? ReplicationRole { get { throw null; } }
         public string ReplicationState { get { throw null; } }
-    }
-    public partial class InstanceFailoverGroupListResult
-    {
-        internal InstanceFailoverGroupListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.InstanceFailoverGroup> Value { get { throw null; } }
     }
     public partial class InstanceFailoverGroupReadOnlyEndpoint
     {
@@ -3783,12 +3669,6 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.InstancePoolLicenseType left, Azure.ResourceManager.Sql.Models.InstancePoolLicenseType right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class InstancePoolListResult
-    {
-        internal InstancePoolListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.InstancePool> Value { get { throw null; } }
-    }
     public partial class InstancePoolUpdate
     {
         public InstancePoolUpdate() { }
@@ -3803,7 +3683,7 @@ namespace Azure.ResourceManager.Sql.Models
         public Azure.ResourceManager.Sql.Models.MaxSizeCapability StorageLimit { get { throw null; } }
         public int? Value { get { throw null; } }
     }
-    public partial class Job : Azure.ResourceManager.Sql.Models.Resource
+    public partial class Job : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public Job() { }
         public string Description { get { throw null; } set { } }
@@ -3816,12 +3696,6 @@ namespace Azure.ResourceManager.Sql.Models
         public string DatabaseId { get { throw null; } set { } }
         public Azure.ResourceManager.Sql.Models.Sku Sku { get { throw null; } set { } }
         public Azure.ResourceManager.Sql.Models.JobAgentState? State { get { throw null; } }
-    }
-    public partial class JobAgentListResult
-    {
-        internal JobAgentListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.JobAgent> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct JobAgentState : System.IEquatable<Azure.ResourceManager.Sql.Models.JobAgentState>
@@ -3849,19 +3723,13 @@ namespace Azure.ResourceManager.Sql.Models
         public JobAgentUpdate() { }
         public System.Collections.Generic.IDictionary<string, string> Tags { get { throw null; } }
     }
-    public partial class JobCredential : Azure.ResourceManager.Sql.Models.Resource
+    public partial class JobCredential : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public JobCredential() { }
         public string Password { get { throw null; } set { } }
         public string Username { get { throw null; } set { } }
     }
-    public partial class JobCredentialListResult
-    {
-        internal JobCredentialListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.JobCredential> Value { get { throw null; } }
-    }
-    public partial class JobExecution : Azure.ResourceManager.Sql.Models.Resource
+    public partial class JobExecution : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public JobExecution() { }
         public System.DateTimeOffset? CreateTime { get { throw null; } }
@@ -3904,24 +3772,12 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.JobExecutionLifecycle left, Azure.ResourceManager.Sql.Models.JobExecutionLifecycle right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class JobExecutionListResult
-    {
-        internal JobExecutionListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.JobExecution> Value { get { throw null; } }
-    }
     public partial class JobExecutionTarget
     {
         internal JobExecutionTarget() { }
         public string DatabaseName { get { throw null; } }
         public string ServerName { get { throw null; } }
         public Azure.ResourceManager.Sql.Models.JobTargetType? Type { get { throw null; } }
-    }
-    public partial class JobListResult
-    {
-        internal JobListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.Job> Value { get { throw null; } }
     }
     public partial class JobSchedule
     {
@@ -3937,7 +3793,7 @@ namespace Azure.ResourceManager.Sql.Models
         Once = 0,
         Recurring = 1,
     }
-    public partial class JobStep : Azure.ResourceManager.Sql.Models.Resource
+    public partial class JobStep : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public JobStep() { }
         public Azure.ResourceManager.Sql.Models.JobStepAction Action { get { throw null; } set { } }
@@ -3997,12 +3853,6 @@ namespace Azure.ResourceManager.Sql.Models
         public float? RetryIntervalBackoffMultiplier { get { throw null; } set { } }
         public int? TimeoutSeconds { get { throw null; } set { } }
     }
-    public partial class JobStepListResult
-    {
-        internal JobStepListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.JobStep> Value { get { throw null; } }
-    }
     public partial class JobStepOutput
     {
         public JobStepOutput(string serverName, string databaseName, string tableName, string credential) { }
@@ -4043,16 +3893,10 @@ namespace Azure.ResourceManager.Sql.Models
         public string ShardMapName { get { throw null; } set { } }
         public Azure.ResourceManager.Sql.Models.JobTargetType Type { get { throw null; } set { } }
     }
-    public partial class JobTargetGroup : Azure.ResourceManager.Sql.Models.Resource
+    public partial class JobTargetGroup : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public JobTargetGroup() { }
         public System.Collections.Generic.IList<Azure.ResourceManager.Sql.Models.JobTarget> Members { get { throw null; } }
-    }
-    public partial class JobTargetGroupListResult
-    {
-        internal JobTargetGroupListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.JobTargetGroup> Value { get { throw null; } }
     }
     public enum JobTargetGroupMembershipType
     {
@@ -4080,15 +3924,9 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.JobTargetType left, Azure.ResourceManager.Sql.Models.JobTargetType right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class JobVersion : Azure.ResourceManager.Sql.Models.Resource
+    public partial class JobVersion : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public JobVersion() { }
-    }
-    public partial class JobVersionListResult
-    {
-        internal JobVersionListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.Resource> Value { get { throw null; } }
     }
     public partial class LicenseTypeCapability
     {
@@ -4105,12 +3943,6 @@ namespace Azure.ResourceManager.Sql.Models
         public Azure.ResourceManager.Sql.Models.CapabilityStatus? Status { get { throw null; } }
         public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ManagedInstanceVersionCapability> SupportedManagedInstanceVersions { get { throw null; } }
         public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ServerVersionCapability> SupportedServerVersions { get { throw null; } }
-    }
-    public partial class LogicalServerSecurityAlertPolicyListResult
-    {
-        internal LogicalServerSecurityAlertPolicyListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ServerSecurityAlertPolicy> Value { get { throw null; } }
     }
     public partial class LogSizeCapability
     {
@@ -4139,7 +3971,7 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.LogSizeUnit left, Azure.ResourceManager.Sql.Models.LogSizeUnit right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class LongTermRetentionBackup : Azure.ResourceManager.Sql.Models.Resource
+    public partial class LongTermRetentionBackup : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public LongTermRetentionBackup() { }
         public System.DateTimeOffset? BackupExpirationTime { get { throw null; } }
@@ -4148,12 +3980,6 @@ namespace Azure.ResourceManager.Sql.Models
         public string DatabaseName { get { throw null; } }
         public System.DateTimeOffset? ServerCreateTime { get { throw null; } }
         public string ServerName { get { throw null; } }
-    }
-    public partial class LongTermRetentionBackupListResult
-    {
-        internal LongTermRetentionBackupListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.LongTermRetentionBackup> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct LongTermRetentionDatabaseState : System.IEquatable<Azure.ResourceManager.Sql.Models.LongTermRetentionDatabaseState>
@@ -4191,16 +4017,10 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.LongTermRetentionPolicyName left, Azure.ResourceManager.Sql.Models.LongTermRetentionPolicyName right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class ManagedBackupShortTermRetentionPolicy : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ManagedBackupShortTermRetentionPolicy : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ManagedBackupShortTermRetentionPolicy() { }
         public int? RetentionDays { get { throw null; } set { } }
-    }
-    public partial class ManagedBackupShortTermRetentionPolicyListResult
-    {
-        internal ManagedBackupShortTermRetentionPolicyListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ManagedBackupShortTermRetentionPolicy> Value { get { throw null; } }
     }
     public partial class ManagedDatabase : Azure.ResourceManager.Sql.Models.TrackedResource
     {
@@ -4244,13 +4064,7 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.ManagedDatabaseCreateMode left, Azure.ResourceManager.Sql.Models.ManagedDatabaseCreateMode right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class ManagedDatabaseListResult
-    {
-        internal ManagedDatabaseListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ManagedDatabase> Value { get { throw null; } }
-    }
-    public partial class ManagedDatabaseRestoreDetailsResult : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ManagedDatabaseRestoreDetailsResult : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ManagedDatabaseRestoreDetailsResult() { }
         public string BlockReason { get { throw null; } }
@@ -4264,7 +4078,7 @@ namespace Azure.ResourceManager.Sql.Models
         public string Status { get { throw null; } }
         public System.Collections.Generic.IReadOnlyList<string> UnrestorableFiles { get { throw null; } }
     }
-    public partial class ManagedDatabaseSecurityAlertPolicy : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ManagedDatabaseSecurityAlertPolicy : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ManagedDatabaseSecurityAlertPolicy() { }
         public System.DateTimeOffset? CreationTime { get { throw null; } }
@@ -4275,12 +4089,6 @@ namespace Azure.ResourceManager.Sql.Models
         public Azure.ResourceManager.Sql.Models.SecurityAlertPolicyState? State { get { throw null; } set { } }
         public string StorageAccountAccessKey { get { throw null; } set { } }
         public string StorageEndpoint { get { throw null; } set { } }
-    }
-    public partial class ManagedDatabaseSecurityAlertPolicyListResult
-    {
-        internal ManagedDatabaseSecurityAlertPolicyListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ManagedDatabaseSecurityAlertPolicy> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct ManagedDatabaseStatus : System.IEquatable<Azure.ResourceManager.Sql.Models.ManagedDatabaseStatus>
@@ -4354,19 +4162,13 @@ namespace Azure.ResourceManager.Sql.Models
         public string TimezoneId { get { throw null; } set { } }
         public int? VCores { get { throw null; } set { } }
     }
-    public partial class ManagedInstanceAdministrator : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ManagedInstanceAdministrator : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ManagedInstanceAdministrator() { }
         public Azure.ResourceManager.Sql.Models.ManagedInstanceAdministratorType? AdministratorType { get { throw null; } set { } }
         public string Login { get { throw null; } set { } }
         public System.Guid? Sid { get { throw null; } set { } }
         public System.Guid? TenantId { get { throw null; } set { } }
-    }
-    public partial class ManagedInstanceAdministratorListResult
-    {
-        internal ManagedInstanceAdministratorListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ManagedInstanceAdministrator> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct ManagedInstanceAdministratorType : System.IEquatable<Azure.ResourceManager.Sql.Models.ManagedInstanceAdministratorType>
@@ -4393,7 +4195,7 @@ namespace Azure.ResourceManager.Sql.Models
         public Azure.ResourceManager.Sql.Models.CapabilityStatus? Status { get { throw null; } }
         public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ManagedInstanceFamilyCapability> SupportedFamilies { get { throw null; } }
     }
-    public partial class ManagedInstanceEncryptionProtector : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ManagedInstanceEncryptionProtector : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ManagedInstanceEncryptionProtector() { }
         public string Kind { get { throw null; } }
@@ -4401,12 +4203,6 @@ namespace Azure.ResourceManager.Sql.Models
         public Azure.ResourceManager.Sql.Models.ServerKeyType? ServerKeyType { get { throw null; } set { } }
         public string Thumbprint { get { throw null; } }
         public string Uri { get { throw null; } }
-    }
-    public partial class ManagedInstanceEncryptionProtectorListResult
-    {
-        internal ManagedInstanceEncryptionProtectorListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ManagedInstanceEncryptionProtector> Value { get { throw null; } }
     }
     public partial class ManagedInstanceFamilyCapability
     {
@@ -4418,7 +4214,7 @@ namespace Azure.ResourceManager.Sql.Models
         public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.LicenseTypeCapability> SupportedLicenseTypes { get { throw null; } }
         public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ManagedInstanceVcoresCapability> SupportedVcoresValues { get { throw null; } }
     }
-    public partial class ManagedInstanceKey : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ManagedInstanceKey : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ManagedInstanceKey() { }
         public System.DateTimeOffset? CreationDate { get { throw null; } }
@@ -4426,12 +4222,6 @@ namespace Azure.ResourceManager.Sql.Models
         public Azure.ResourceManager.Sql.Models.ServerKeyType? ServerKeyType { get { throw null; } set { } }
         public string Thumbprint { get { throw null; } }
         public string Uri { get { throw null; } set { } }
-    }
-    public partial class ManagedInstanceKeyListResult
-    {
-        internal ManagedInstanceKeyListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ManagedInstanceKey> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct ManagedInstanceLicenseType : System.IEquatable<Azure.ResourceManager.Sql.Models.ManagedInstanceLicenseType>
@@ -4451,13 +4241,7 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.ManagedInstanceLicenseType left, Azure.ResourceManager.Sql.Models.ManagedInstanceLicenseType right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class ManagedInstanceListResult
-    {
-        internal ManagedInstanceListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ManagedInstance> Value { get { throw null; } }
-    }
-    public partial class ManagedInstanceLongTermRetentionBackup : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ManagedInstanceLongTermRetentionBackup : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ManagedInstanceLongTermRetentionBackup() { }
         public System.DateTimeOffset? BackupExpirationTime { get { throw null; } }
@@ -4467,25 +4251,13 @@ namespace Azure.ResourceManager.Sql.Models
         public System.DateTimeOffset? ManagedInstanceCreateTime { get { throw null; } }
         public string ManagedInstanceName { get { throw null; } }
     }
-    public partial class ManagedInstanceLongTermRetentionBackupListResult
-    {
-        internal ManagedInstanceLongTermRetentionBackupListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ManagedInstanceLongTermRetentionBackup> Value { get { throw null; } }
-    }
-    public partial class ManagedInstanceLongTermRetentionPolicy : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ManagedInstanceLongTermRetentionPolicy : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ManagedInstanceLongTermRetentionPolicy() { }
         public string MonthlyRetention { get { throw null; } set { } }
         public string WeeklyRetention { get { throw null; } set { } }
         public int? WeekOfYear { get { throw null; } set { } }
         public string YearlyRetention { get { throw null; } set { } }
-    }
-    public partial class ManagedInstanceLongTermRetentionPolicyListResult
-    {
-        internal ManagedInstanceLongTermRetentionPolicyListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ManagedInstanceLongTermRetentionPolicy> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct ManagedInstanceLongTermRetentionPolicyName : System.IEquatable<Azure.ResourceManager.Sql.Models.ManagedInstanceLongTermRetentionPolicyName>
@@ -4504,7 +4276,7 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.ManagedInstanceLongTermRetentionPolicyName left, Azure.ResourceManager.Sql.Models.ManagedInstanceLongTermRetentionPolicyName right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class ManagedInstanceOperation : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ManagedInstanceOperation : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ManagedInstanceOperation() { }
         public string Description { get { throw null; } }
@@ -4522,12 +4294,6 @@ namespace Azure.ResourceManager.Sql.Models
         public int? PercentComplete { get { throw null; } }
         public System.DateTimeOffset? StartTime { get { throw null; } }
         public Azure.ResourceManager.Sql.Models.ManagementOperationState? State { get { throw null; } }
-    }
-    public partial class ManagedInstanceOperationListResult
-    {
-        internal ManagedInstanceOperationListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ManagedInstanceOperation> Value { get { throw null; } }
     }
     public partial class ManagedInstanceOperationParametersPair
     {
@@ -4637,19 +4403,13 @@ namespace Azure.ResourceManager.Sql.Models
         public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ManagedInstanceEditionCapability> SupportedEditions { get { throw null; } }
         public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.InstancePoolEditionCapability> SupportedInstancePoolEditions { get { throw null; } }
     }
-    public partial class ManagedInstanceVulnerabilityAssessment : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ManagedInstanceVulnerabilityAssessment : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ManagedInstanceVulnerabilityAssessment() { }
         public Azure.ResourceManager.Sql.Models.VulnerabilityAssessmentRecurringScansProperties RecurringScans { get { throw null; } set { } }
         public string StorageAccountAccessKey { get { throw null; } set { } }
         public string StorageContainerPath { get { throw null; } set { } }
         public string StorageContainerSasKey { get { throw null; } set { } }
-    }
-    public partial class ManagedInstanceVulnerabilityAssessmentListResult
-    {
-        internal ManagedInstanceVulnerabilityAssessmentListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ManagedInstanceVulnerabilityAssessment> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct ManagedServerCreateMode : System.IEquatable<Azure.ResourceManager.Sql.Models.ManagedServerCreateMode>
@@ -4669,7 +4429,7 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.ManagedServerCreateMode left, Azure.ResourceManager.Sql.Models.ManagedServerCreateMode right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class ManagedServerSecurityAlertPolicy : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ManagedServerSecurityAlertPolicy : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ManagedServerSecurityAlertPolicy() { }
         public System.DateTimeOffset? CreationTime { get { throw null; } }
@@ -4680,12 +4440,6 @@ namespace Azure.ResourceManager.Sql.Models
         public Azure.ResourceManager.Sql.Models.SecurityAlertPolicyState? State { get { throw null; } set { } }
         public string StorageAccountAccessKey { get { throw null; } set { } }
         public string StorageEndpoint { get { throw null; } set { } }
-    }
-    public partial class ManagedServerSecurityAlertPolicyListResult
-    {
-        internal ManagedServerSecurityAlertPolicyListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ManagedServerSecurityAlertPolicy> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct ManagedShortTermRetentionPolicyName : System.IEquatable<Azure.ResourceManager.Sql.Models.ManagedShortTermRetentionPolicyName>
@@ -4787,16 +4541,6 @@ namespace Azure.ResourceManager.Sql.Models
         public string ResourceUri { get { throw null; } }
         public Azure.ResourceManager.Sql.Models.UnitDefinitionType? Unit { get { throw null; } }
     }
-    public partial class MetricDefinitionListResult
-    {
-        internal MetricDefinitionListResult() { }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.MetricDefinition> Value { get { throw null; } }
-    }
-    public partial class MetricListResult
-    {
-        internal MetricListResult() { }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.Metric> Value { get { throw null; } }
-    }
     public partial class MetricName
     {
         internal MetricName() { }
@@ -4849,12 +4593,6 @@ namespace Azure.ResourceManager.Sql.Models
         public double? ChangeValueRelative { get { throw null; } }
         public string Name { get { throw null; } }
         public string Unit { get { throw null; } }
-    }
-    public partial class OperationListResult
-    {
-        internal OperationListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.Operation> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct OperationOrigin : System.IEquatable<Azure.ResourceManager.Sql.Models.OperationOrigin>
@@ -4950,18 +4688,12 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.PrimaryAggregationType left, Azure.ResourceManager.Sql.Models.PrimaryAggregationType right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class PrivateEndpointConnection : Azure.ResourceManager.Sql.Models.Resource
+    public partial class PrivateEndpointConnection : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public PrivateEndpointConnection() { }
         public Azure.ResourceManager.Sql.Models.PrivateEndpointProperty PrivateEndpoint { get { throw null; } set { } }
         public Azure.ResourceManager.Sql.Models.PrivateLinkServiceConnectionStateProperty PrivateLinkServiceConnectionState { get { throw null; } set { } }
         public string ProvisioningState { get { throw null; } }
-    }
-    public partial class PrivateEndpointConnectionListResult
-    {
-        internal PrivateEndpointConnectionListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.PrivateEndpointConnection> Value { get { throw null; } }
     }
     public partial class PrivateEndpointConnectionProperties
     {
@@ -4996,16 +4728,10 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.PrivateEndpointProvisioningState left, Azure.ResourceManager.Sql.Models.PrivateEndpointProvisioningState right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class PrivateLinkResource : Azure.ResourceManager.Sql.Models.Resource
+    public partial class PrivateLinkResource : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public PrivateLinkResource() { }
         public Azure.ResourceManager.Sql.Models.PrivateLinkResourceProperties Properties { get { throw null; } }
-    }
-    public partial class PrivateLinkResourceListResult
-    {
-        internal PrivateLinkResourceListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.PrivateLinkResource> Value { get { throw null; } }
     }
     public partial class PrivateLinkResourceProperties
     {
@@ -5132,7 +4858,7 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.ReadWriteEndpointFailoverPolicy left, Azure.ResourceManager.Sql.Models.ReadWriteEndpointFailoverPolicy right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class RecommendedElasticPool : Azure.ResourceManager.Sql.Models.Resource
+    public partial class RecommendedElasticPool : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public RecommendedElasticPool() { }
         public double? DatabaseDtuMax { get { throw null; } set { } }
@@ -5147,16 +4873,6 @@ namespace Azure.ResourceManager.Sql.Models
         public System.DateTimeOffset? ObservationPeriodStart { get { throw null; } }
         public double? StorageMB { get { throw null; } set { } }
     }
-    public partial class RecommendedElasticPoolListMetricsResult
-    {
-        internal RecommendedElasticPoolListMetricsResult() { }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.RecommendedElasticPoolMetric> Value { get { throw null; } }
-    }
-    public partial class RecommendedElasticPoolListResult
-    {
-        internal RecommendedElasticPoolListResult() { }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.RecommendedElasticPool> Value { get { throw null; } }
-    }
     public partial class RecommendedElasticPoolMetric
     {
         internal RecommendedElasticPoolMetric() { }
@@ -5164,7 +4880,7 @@ namespace Azure.ResourceManager.Sql.Models
         public double? Dtu { get { throw null; } }
         public double? SizeGB { get { throw null; } }
     }
-    public partial class RecommendedIndex : Azure.ResourceManager.Sql.Models.Resource
+    public partial class RecommendedIndex : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public RecommendedIndex() { }
         public Azure.ResourceManager.Sql.Models.RecommendedIndexAction? Action { get { throw null; } }
@@ -5207,7 +4923,7 @@ namespace Azure.ResourceManager.Sql.Models
         Columnstore = 2,
         ClusteredColumnstore = 3,
     }
-    public partial class RecoverableDatabase : Azure.ResourceManager.Sql.Models.Resource
+    public partial class RecoverableDatabase : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public RecoverableDatabase() { }
         public string Edition { get { throw null; } }
@@ -5215,23 +4931,12 @@ namespace Azure.ResourceManager.Sql.Models
         public System.DateTimeOffset? LastAvailableBackupDate { get { throw null; } }
         public string ServiceLevelObjective { get { throw null; } }
     }
-    public partial class RecoverableDatabaseListResult
-    {
-        internal RecoverableDatabaseListResult() { }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.RecoverableDatabase> Value { get { throw null; } }
-    }
-    public partial class RecoverableManagedDatabase : Azure.ResourceManager.Sql.Models.Resource
+    public partial class RecoverableManagedDatabase : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public RecoverableManagedDatabase() { }
         public string LastAvailableBackupDate { get { throw null; } }
     }
-    public partial class RecoverableManagedDatabaseListResult
-    {
-        internal RecoverableManagedDatabaseListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.RecoverableManagedDatabase> Value { get { throw null; } }
-    }
-    public partial class ReplicationLink : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ReplicationLink : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ReplicationLink() { }
         public bool? IsTerminationAllowed { get { throw null; } }
@@ -5245,11 +4950,6 @@ namespace Azure.ResourceManager.Sql.Models
         public Azure.ResourceManager.Sql.Models.ReplicationState? ReplicationState { get { throw null; } }
         public Azure.ResourceManager.Sql.Models.ReplicationRole? Role { get { throw null; } }
         public System.DateTimeOffset? StartTime { get { throw null; } }
-    }
-    public partial class ReplicationLinkListResult
-    {
-        internal ReplicationLinkListResult() { }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ReplicationLink> Value { get { throw null; } }
     }
     public enum ReplicationRole
     {
@@ -5316,7 +5016,7 @@ namespace Azure.ResourceManager.Sql.Models
         public ResourceMoveDefinition(string id) { }
         public string Id { get { throw null; } }
     }
-    public partial class RestorableDroppedDatabase : Azure.ResourceManager.Sql.Models.Resource
+    public partial class RestorableDroppedDatabase : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public RestorableDroppedDatabase() { }
         public System.DateTimeOffset? CreationDate { get { throw null; } }
@@ -5329,11 +5029,6 @@ namespace Azure.ResourceManager.Sql.Models
         public string MaxSizeBytes { get { throw null; } }
         public string ServiceLevelObjective { get { throw null; } }
     }
-    public partial class RestorableDroppedDatabaseListResult
-    {
-        internal RestorableDroppedDatabaseListResult() { }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.RestorableDroppedDatabase> Value { get { throw null; } }
-    }
     public partial class RestorableDroppedManagedDatabase : Azure.ResourceManager.Sql.Models.TrackedResource
     {
         public RestorableDroppedManagedDatabase(string location) : base (default(string)) { }
@@ -5341,12 +5036,6 @@ namespace Azure.ResourceManager.Sql.Models
         public string DatabaseName { get { throw null; } }
         public System.DateTimeOffset? DeletionDate { get { throw null; } }
         public System.DateTimeOffset? EarliestRestoreDate { get { throw null; } }
-    }
-    public partial class RestorableDroppedManagedDatabaseListResult
-    {
-        internal RestorableDroppedManagedDatabaseListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.RestorableDroppedManagedDatabase> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct RestoreDetailsName : System.IEquatable<Azure.ResourceManager.Sql.Models.RestoreDetailsName>
@@ -5365,7 +5054,7 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.RestoreDetailsName left, Azure.ResourceManager.Sql.Models.RestoreDetailsName right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class RestorePoint : Azure.ResourceManager.Sql.Models.Resource
+    public partial class RestorePoint : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public RestorePoint() { }
         public System.DateTimeOffset? EarliestRestoreDate { get { throw null; } }
@@ -5373,12 +5062,6 @@ namespace Azure.ResourceManager.Sql.Models
         public System.DateTimeOffset? RestorePointCreationDate { get { throw null; } }
         public string RestorePointLabel { get { throw null; } }
         public Azure.ResourceManager.Sql.Models.RestorePointType? RestorePointType { get { throw null; } }
-    }
-    public partial class RestorePointListResult
-    {
-        internal RestorePointListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.RestorePoint> Value { get { throw null; } }
     }
     public enum RestorePointType
     {
@@ -5454,7 +5137,7 @@ namespace Azure.ResourceManager.Sql.Models
         Enabled = 0,
         Disabled = 1,
     }
-    public partial class SensitivityLabel : Azure.ResourceManager.Sql.Models.Resource
+    public partial class SensitivityLabel : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public SensitivityLabel() { }
         public string InformationType { get { throw null; } set { } }
@@ -5463,12 +5146,6 @@ namespace Azure.ResourceManager.Sql.Models
         public string LabelId { get { throw null; } set { } }
         public string LabelName { get { throw null; } set { } }
         public Azure.ResourceManager.Sql.Models.SensitivityLabelRank? Rank { get { throw null; } set { } }
-    }
-    public partial class SensitivityLabelListResult
-    {
-        internal SensitivityLabelListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.SensitivityLabel> Value { get { throw null; } }
     }
     public enum SensitivityLabelRank
     {
@@ -5497,14 +5174,14 @@ namespace Azure.ResourceManager.Sql.Models
         public string State { get { throw null; } }
         public string Version { get { throw null; } set { } }
     }
-    public partial class ServerAutomaticTuning : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ServerAutomaticTuning : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ServerAutomaticTuning() { }
         public Azure.ResourceManager.Sql.Models.AutomaticTuningServerMode? ActualState { get { throw null; } }
         public Azure.ResourceManager.Sql.Models.AutomaticTuningServerMode? DesiredState { get { throw null; } set { } }
         public System.Collections.Generic.IDictionary<string, Azure.ResourceManager.Sql.Models.AutomaticTuningServerOptions> Options { get { throw null; } }
     }
-    public partial class ServerAzureADAdministrator : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ServerAzureADAdministrator : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ServerAzureADAdministrator() { }
         public Azure.ResourceManager.Sql.Models.AdministratorType? AdministratorType { get { throw null; } set { } }
@@ -5513,12 +5190,12 @@ namespace Azure.ResourceManager.Sql.Models
         public System.Guid? Sid { get { throw null; } set { } }
         public System.Guid? TenantId { get { throw null; } set { } }
     }
-    public partial class ServerAzureADOnlyAuthentication : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ServerAzureADOnlyAuthentication : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ServerAzureADOnlyAuthentication() { }
         public bool? AzureADOnlyAuthentication { get { throw null; } set { } }
     }
-    public partial class ServerBlobAuditingPolicy : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ServerBlobAuditingPolicy : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ServerBlobAuditingPolicy() { }
         public System.Collections.Generic.IList<string> AuditActionsAndGroups { get { throw null; } }
@@ -5531,13 +5208,7 @@ namespace Azure.ResourceManager.Sql.Models
         public System.Guid? StorageAccountSubscriptionId { get { throw null; } set { } }
         public string StorageEndpoint { get { throw null; } set { } }
     }
-    public partial class ServerBlobAuditingPolicyListResult
-    {
-        internal ServerBlobAuditingPolicyListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ServerBlobAuditingPolicy> Value { get { throw null; } }
-    }
-    public partial class ServerCommunicationLink : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ServerCommunicationLink : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ServerCommunicationLink() { }
         public string Kind { get { throw null; } }
@@ -5545,12 +5216,7 @@ namespace Azure.ResourceManager.Sql.Models
         public string PartnerServer { get { throw null; } set { } }
         public string State { get { throw null; } }
     }
-    public partial class ServerCommunicationLinkListResult
-    {
-        internal ServerCommunicationLinkListResult() { }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ServerCommunicationLink> Value { get { throw null; } }
-    }
-    public partial class ServerConnectionPolicy : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ServerConnectionPolicy : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ServerConnectionPolicy() { }
         public Azure.ResourceManager.Sql.Models.ServerConnectionType? ConnectionType { get { throw null; } set { } }
@@ -5563,7 +5229,7 @@ namespace Azure.ResourceManager.Sql.Models
         Proxy = 1,
         Redirect = 2,
     }
-    public partial class ServerDnsAlias : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ServerDnsAlias : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ServerDnsAlias() { }
         public string AzureDnsRecord { get { throw null; } }
@@ -5573,13 +5239,7 @@ namespace Azure.ResourceManager.Sql.Models
         public ServerDnsAliasAcquisition() { }
         public string OldServerDnsAliasId { get { throw null; } set { } }
     }
-    public partial class ServerDnsAliasListResult
-    {
-        internal ServerDnsAliasListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ServerDnsAlias> Value { get { throw null; } }
-    }
-    public partial class ServerKey : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ServerKey : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ServerKey() { }
         public System.DateTimeOffset? CreationDate { get { throw null; } set { } }
@@ -5589,12 +5249,6 @@ namespace Azure.ResourceManager.Sql.Models
         public string Subregion { get { throw null; } }
         public string Thumbprint { get { throw null; } set { } }
         public string Uri { get { throw null; } set { } }
-    }
-    public partial class ServerKeyListResult
-    {
-        internal ServerKeyListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ServerKey> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct ServerKeyType : System.IEquatable<Azure.ResourceManager.Sql.Models.ServerKeyType>
@@ -5613,12 +5267,6 @@ namespace Azure.ResourceManager.Sql.Models
         public static implicit operator Azure.ResourceManager.Sql.Models.ServerKeyType (string value) { throw null; }
         public static bool operator !=(Azure.ResourceManager.Sql.Models.ServerKeyType left, Azure.ResourceManager.Sql.Models.ServerKeyType right) { throw null; }
         public override string ToString() { throw null; }
-    }
-    public partial class ServerListResult
-    {
-        internal ServerListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.Server> Value { get { throw null; } }
     }
     public partial class ServerPrivateEndpointConnection
     {
@@ -5644,7 +5292,7 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.ServerPublicNetworkAccess left, Azure.ResourceManager.Sql.Models.ServerPublicNetworkAccess right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class ServerSecurityAlertPolicy : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ServerSecurityAlertPolicy : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ServerSecurityAlertPolicy() { }
         public System.DateTimeOffset? CreationTime { get { throw null; } }
@@ -5680,11 +5328,6 @@ namespace Azure.ResourceManager.Sql.Models
         public string ResourceName { get { throw null; } }
         public string Unit { get { throw null; } }
     }
-    public partial class ServerUsageListResult
-    {
-        internal ServerUsageListResult() { }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ServerUsage> Value { get { throw null; } }
-    }
     public partial class ServerVersionCapability
     {
         internal ServerVersionCapability() { }
@@ -5694,7 +5337,7 @@ namespace Azure.ResourceManager.Sql.Models
         public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.EditionCapability> SupportedEditions { get { throw null; } }
         public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ElasticPoolEditionCapability> SupportedElasticPoolEditions { get { throw null; } }
     }
-    public partial class ServerVulnerabilityAssessment : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ServerVulnerabilityAssessment : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ServerVulnerabilityAssessment() { }
         public Azure.ResourceManager.Sql.Models.VulnerabilityAssessmentRecurringScansProperties RecurringScans { get { throw null; } set { } }
@@ -5702,13 +5345,7 @@ namespace Azure.ResourceManager.Sql.Models
         public string StorageContainerPath { get { throw null; } set { } }
         public string StorageContainerSasKey { get { throw null; } set { } }
     }
-    public partial class ServerVulnerabilityAssessmentListResult
-    {
-        internal ServerVulnerabilityAssessmentListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ServerVulnerabilityAssessment> Value { get { throw null; } }
-    }
-    public partial class ServiceObjective : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ServiceObjective : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ServiceObjective() { }
         public string Description { get { throw null; } }
@@ -5733,11 +5370,6 @@ namespace Azure.ResourceManager.Sql.Models
         public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.MaxSizeRangeCapability> SupportedMaxSizes { get { throw null; } }
         public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.MinCapacityCapability> SupportedMinCapacities { get { throw null; } }
         public bool? ZoneRedundant { get { throw null; } }
-    }
-    public partial class ServiceObjectiveListResult
-    {
-        internal ServiceObjectiveListResult() { }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ServiceObjective> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct ServiceObjectiveName : System.IEquatable<Azure.ResourceManager.Sql.Models.ServiceObjectiveName>
@@ -5820,7 +5452,7 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.ServiceObjectiveName left, Azure.ResourceManager.Sql.Models.ServiceObjectiveName right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class ServiceTierAdvisor : Azure.ResourceManager.Sql.Models.Resource
+    public partial class ServiceTierAdvisor : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public ServiceTierAdvisor() { }
         public double? ActiveTimeRatio { get { throw null; } }
@@ -5842,11 +5474,6 @@ namespace Azure.ResourceManager.Sql.Models
         public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.SloUsageMetric> ServiceLevelObjectiveUsageMetrics { get { throw null; } }
         public string UsageBasedRecommendationServiceLevelObjective { get { throw null; } }
         public System.Guid? UsageBasedRecommendationServiceLevelObjectiveId { get { throw null; } }
-    }
-    public partial class ServiceTierAdvisorListResult
-    {
-        internal ServiceTierAdvisorListResult() { }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.ServiceTierAdvisor> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct ShortTermRetentionPolicyName : System.IEquatable<Azure.ResourceManager.Sql.Models.ShortTermRetentionPolicyName>
@@ -5912,7 +5539,7 @@ namespace Azure.ResourceManager.Sql.Models
         StorageAccessKey = 0,
         SharedAccessKey = 1,
     }
-    public partial class SubscriptionUsage : Azure.ResourceManager.Sql.Models.Resource
+    public partial class SubscriptionUsage : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public SubscriptionUsage() { }
         public double? CurrentValue { get { throw null; } }
@@ -5920,13 +5547,7 @@ namespace Azure.ResourceManager.Sql.Models
         public double? Limit { get { throw null; } }
         public string Unit { get { throw null; } }
     }
-    public partial class SubscriptionUsageListResult
-    {
-        internal SubscriptionUsageListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.SubscriptionUsage> Value { get { throw null; } }
-    }
-    public partial class SyncAgent : Azure.ResourceManager.Sql.Models.Resource
+    public partial class SyncAgent : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public SyncAgent() { }
         public System.DateTimeOffset? ExpiryTime { get { throw null; } }
@@ -5942,7 +5563,7 @@ namespace Azure.ResourceManager.Sql.Models
         internal SyncAgentKeyProperties() { }
         public string SyncAgentKey { get { throw null; } }
     }
-    public partial class SyncAgentLinkedDatabase : Azure.ResourceManager.Sql.Models.Resource
+    public partial class SyncAgentLinkedDatabase : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public SyncAgentLinkedDatabase() { }
         public string DatabaseId { get { throw null; } }
@@ -5951,18 +5572,6 @@ namespace Azure.ResourceManager.Sql.Models
         public string Description { get { throw null; } }
         public string ServerName { get { throw null; } }
         public string UserName { get { throw null; } }
-    }
-    public partial class SyncAgentLinkedDatabaseListResult
-    {
-        internal SyncAgentLinkedDatabaseListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.SyncAgentLinkedDatabase> Value { get { throw null; } }
-    }
-    public partial class SyncAgentListResult
-    {
-        internal SyncAgentListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.SyncAgent> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct SyncAgentState : System.IEquatable<Azure.ResourceManager.Sql.Models.SyncAgentState>
@@ -6001,12 +5610,6 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.SyncConflictResolutionPolicy left, Azure.ResourceManager.Sql.Models.SyncConflictResolutionPolicy right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class SyncDatabaseIdListResult
-    {
-        internal SyncDatabaseIdListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.SyncDatabaseIdProperties> Value { get { throw null; } }
-    }
     public partial class SyncDatabaseIdProperties
     {
         internal SyncDatabaseIdProperties() { }
@@ -6037,12 +5640,6 @@ namespace Azure.ResourceManager.Sql.Models
         public System.DateTimeOffset? LastUpdateTime { get { throw null; } }
         public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.SyncFullSchemaTable> Tables { get { throw null; } }
     }
-    public partial class SyncFullSchemaPropertiesListResult
-    {
-        internal SyncFullSchemaPropertiesListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.SyncFullSchemaProperties> Value { get { throw null; } }
-    }
     public partial class SyncFullSchemaTable
     {
         internal SyncFullSchemaTable() { }
@@ -6063,7 +5660,7 @@ namespace Azure.ResourceManager.Sql.Models
         public string Name { get { throw null; } }
         public string QuotedName { get { throw null; } }
     }
-    public partial class SyncGroup : Azure.ResourceManager.Sql.Models.Resource
+    public partial class SyncGroup : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public SyncGroup() { }
         public Azure.ResourceManager.Sql.Models.SyncConflictResolutionPolicy? ConflictResolutionPolicy { get { throw null; } set { } }
@@ -6075,18 +5672,6 @@ namespace Azure.ResourceManager.Sql.Models
         public string SyncDatabaseId { get { throw null; } set { } }
         public Azure.ResourceManager.Sql.Models.SyncGroupState? SyncState { get { throw null; } }
         public bool? UsePrivateLinkConnection { get { throw null; } set { } }
-    }
-    public partial class SyncGroupListResult
-    {
-        internal SyncGroupListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.SyncGroup> Value { get { throw null; } }
-    }
-    public partial class SyncGroupLogListResult
-    {
-        internal SyncGroupLogListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.SyncGroupLogProperties> Value { get { throw null; } }
     }
     public partial class SyncGroupLogProperties
     {
@@ -6158,7 +5743,7 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.SyncGroupState left, Azure.ResourceManager.Sql.Models.SyncGroupState right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class SyncMember : Azure.ResourceManager.Sql.Models.Resource
+    public partial class SyncMember : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public SyncMember() { }
         public string DatabaseName { get { throw null; } set { } }
@@ -6190,12 +5775,6 @@ namespace Azure.ResourceManager.Sql.Models
         public static implicit operator Azure.ResourceManager.Sql.Models.SyncMemberDbType (string value) { throw null; }
         public static bool operator !=(Azure.ResourceManager.Sql.Models.SyncMemberDbType left, Azure.ResourceManager.Sql.Models.SyncMemberDbType right) { throw null; }
         public override string ToString() { throw null; }
-    }
-    public partial class SyncMemberListResult
-    {
-        internal SyncMemberListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.SyncMember> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct SyncMemberState : System.IEquatable<Azure.ResourceManager.Sql.Models.SyncMemberState>
@@ -6231,7 +5810,7 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.SyncMemberState left, Azure.ResourceManager.Sql.Models.SyncMemberState right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class TdeCertificate : Azure.ResourceManager.Sql.Models.Resource
+    public partial class TdeCertificate : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public TdeCertificate() { }
         public string CertPassword { get { throw null; } set { } }
@@ -6243,23 +5822,18 @@ namespace Azure.ResourceManager.Sql.Models
         public string Location { get { throw null; } set { } }
         public System.Collections.Generic.IDictionary<string, string> Tags { get { throw null; } }
     }
-    public partial class TransparentDataEncryption : Azure.ResourceManager.Sql.Models.Resource
+    public partial class TransparentDataEncryption : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public TransparentDataEncryption() { }
         public string Location { get { throw null; } }
         public Azure.ResourceManager.Sql.Models.TransparentDataEncryptionStatus? Status { get { throw null; } set { } }
     }
-    public partial class TransparentDataEncryptionActivity : Azure.ResourceManager.Sql.Models.Resource
+    public partial class TransparentDataEncryptionActivity : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public TransparentDataEncryptionActivity() { }
         public string Location { get { throw null; } }
         public float? PercentComplete { get { throw null; } }
         public Azure.ResourceManager.Sql.Models.TransparentDataEncryptionActivityStatus? Status { get { throw null; } }
-    }
-    public partial class TransparentDataEncryptionActivityListResult
-    {
-        internal TransparentDataEncryptionActivityListResult() { }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.TransparentDataEncryptionActivity> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct TransparentDataEncryptionActivityStatus : System.IEquatable<Azure.ResourceManager.Sql.Models.TransparentDataEncryptionActivityStatus>
@@ -6398,24 +5972,12 @@ namespace Azure.ResourceManager.Sql.Models
         public string Type { get { throw null; } }
         public string Unit { get { throw null; } }
     }
-    public partial class UsageListResult
-    {
-        internal UsageListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.Usage> Value { get { throw null; } }
-    }
     public partial class VirtualCluster : Azure.ResourceManager.Sql.Models.TrackedResource
     {
         public VirtualCluster(string location) : base (default(string)) { }
         public System.Collections.Generic.IReadOnlyList<string> ChildResources { get { throw null; } }
         public string Family { get { throw null; } set { } }
         public string SubnetId { get { throw null; } }
-    }
-    public partial class VirtualClusterListResult
-    {
-        internal VirtualClusterListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.VirtualCluster> Value { get { throw null; } }
     }
     public partial class VirtualClusterUpdate
     {
@@ -6425,18 +5987,12 @@ namespace Azure.ResourceManager.Sql.Models
         public string SubnetId { get { throw null; } }
         public System.Collections.Generic.IDictionary<string, string> Tags { get { throw null; } }
     }
-    public partial class VirtualNetworkRule : Azure.ResourceManager.Sql.Models.Resource
+    public partial class VirtualNetworkRule : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public VirtualNetworkRule() { }
         public bool? IgnoreMissingVnetServiceEndpoint { get { throw null; } set { } }
         public Azure.ResourceManager.Sql.Models.VirtualNetworkRuleState? State { get { throw null; } }
         public string VirtualNetworkSubnetId { get { throw null; } set { } }
-    }
-    public partial class VirtualNetworkRuleListResult
-    {
-        internal VirtualNetworkRuleListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.VirtualNetworkRule> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct VirtualNetworkRuleState : System.IEquatable<Azure.ResourceManager.Sql.Models.VirtualNetworkRuleState>
@@ -6494,7 +6050,7 @@ namespace Azure.ResourceManager.Sql.Models
         public string Code { get { throw null; } }
         public string Message { get { throw null; } }
     }
-    public partial class VulnerabilityAssessmentScanRecord : Azure.ResourceManager.Sql.Models.Resource
+    public partial class VulnerabilityAssessmentScanRecord : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public VulnerabilityAssessmentScanRecord() { }
         public System.DateTimeOffset? EndTime { get { throw null; } }
@@ -6505,12 +6061,6 @@ namespace Azure.ResourceManager.Sql.Models
         public Azure.ResourceManager.Sql.Models.VulnerabilityAssessmentScanState? State { get { throw null; } }
         public string StorageContainerPath { get { throw null; } }
         public Azure.ResourceManager.Sql.Models.VulnerabilityAssessmentScanTriggerType? TriggerType { get { throw null; } }
-    }
-    public partial class VulnerabilityAssessmentScanRecordListResult
-    {
-        internal VulnerabilityAssessmentScanRecordListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.VulnerabilityAssessmentScanRecord> Value { get { throw null; } }
     }
     [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
     public readonly partial struct VulnerabilityAssessmentScanState : System.IEquatable<Azure.ResourceManager.Sql.Models.VulnerabilityAssessmentScanState>
@@ -6550,7 +6100,7 @@ namespace Azure.ResourceManager.Sql.Models
         public static bool operator !=(Azure.ResourceManager.Sql.Models.VulnerabilityAssessmentScanTriggerType left, Azure.ResourceManager.Sql.Models.VulnerabilityAssessmentScanTriggerType right) { throw null; }
         public override string ToString() { throw null; }
     }
-    public partial class WorkloadClassifier : Azure.ResourceManager.Sql.Models.Resource
+    public partial class WorkloadClassifier : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public WorkloadClassifier() { }
         public string Context { get { throw null; } set { } }
@@ -6560,13 +6110,7 @@ namespace Azure.ResourceManager.Sql.Models
         public string MemberName { get { throw null; } set { } }
         public string StartTime { get { throw null; } set { } }
     }
-    public partial class WorkloadClassifierListResult
-    {
-        internal WorkloadClassifierListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.WorkloadClassifier> Value { get { throw null; } }
-    }
-    public partial class WorkloadGroup : Azure.ResourceManager.Sql.Models.Resource
+    public partial class WorkloadGroup : Azure.ResourceManager.Sql.Models.ProxyResource
     {
         public WorkloadGroup() { }
         public string Importance { get { throw null; } set { } }
@@ -6575,11 +6119,5 @@ namespace Azure.ResourceManager.Sql.Models
         public int? MinResourcePercent { get { throw null; } set { } }
         public double? MinResourcePercentPerRequest { get { throw null; } set { } }
         public int? QueryExecutionTimeout { get { throw null; } set { } }
-    }
-    public partial class WorkloadGroupListResult
-    {
-        internal WorkloadGroupListResult() { }
-        public string NextLink { get { throw null; } }
-        public System.Collections.Generic.IReadOnlyList<Azure.ResourceManager.Sql.Models.WorkloadGroup> Value { get { throw null; } }
     }
 }

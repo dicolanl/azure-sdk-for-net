@@ -7,20 +7,19 @@ namespace Azure.Communication.Sms.Tests
 {
     public class SmsClientRecordedTestSanitizer : CommunicationRecordedTestSanitizer
     {
-        public SmsClientRecordedTestSanitizer() : base()
+        public SmsClientRecordedTestSanitizer()
         {
-            JsonPathSanitizers.Add("$..token");
-            JsonPathSanitizers.Add("$..id");
             JsonPathSanitizers.Add("$..from");
             JsonPathSanitizers.Add("$..to");
-            JsonPathSanitizers.Add("$..messageId");
+            JsonPathSanitizers.Add("$..repeatabilityRequestId");
+            JsonPathSanitizers.Add("$..repeatabilityFirstSent");
         }
 
         public override string SanitizeVariable(string variableName, string environmentVariableValue)
             => variableName switch
             {
-                SmsClientTestEnvironment.ConnectionStringEnvironmentVariableName => SanitizeConnectionString(environmentVariableValue),
-                SmsClientTestEnvironment.PhoneNumberEnvironmentVariableName => "+18005555555",
+                SmsClientTestEnvironment.FromPhoneNumberEnvironmentVariableName => "+14255550123",
+                SmsClientTestEnvironment.LiveTestConnectionStringEnvironmentVariableName => SanitizeConnectionString(environmentVariableValue),
                 _ => base.SanitizeVariable(variableName, environmentVariableValue)
             };
     }
