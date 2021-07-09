@@ -4,7 +4,7 @@ Run `dotnet build /t:GenerateCode` to generate code.
 
 ``` yaml
 title: EventGridClient
-require: https://github.com/Azure/azure-rest-api-specs/blob/bd75cbc7ae9c997f39362ac9d19d557219720bbd/specification/eventgrid/data-plane/readme.md
+require: https://github.com/Azure/azure-rest-api-specs/blob/d78816faeca788910b48ce0cfad89f85396260d6/specification/eventgrid/data-plane/readme.md
 
 ```
 
@@ -63,11 +63,14 @@ directive:
         $[path]["x-namespace"] = namespace;
       }
       if (path.endsWith("EventData") || 
-          path.endsWith("SubscriptionValidationResponse") || 
           path.includes("EventGridEvent") || 
          ($[path]["x-ms-client-name"] && $[path]["x-ms-client-name"].endsWith("EventData")))
       {
         $[path]["x-csharp-usage"] = "model,output,converter";
+      }
+      if (path.endsWith("SubscriptionValidationResponse"))
+      {
+        $[path]["x-csharp-usage"] = "model,input,output,converter";
       }
       $[path]["x-csharp-formats"] = "json";
       if (path.includes("WebAppServicePlanUpdatedEventData"))
@@ -83,4 +86,13 @@ directive:
           $[path]["properties"]["x509Thumbprint"]["x-csharp-formats"] = "json";
       }
     }
+```
+
+### Discriminator properties have to be required
+
+``` yaml
+directive:
+- from: swagger-document
+  where: $.definitions.MediaJobOutput
+  transform: $.required.push("@odata.type")
 ```
